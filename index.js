@@ -68,6 +68,26 @@ function viewLibrary() {
     }
 }
 
+function addBook(event) {
+    event.preventDefault();
+
+    const title = (document.getElementById('title')).value;
+    const author = (document.getElementById('author')).value;
+    const pages = Number((document.getElementById('pages')).value);
+    
+    const readButtons = document.querySelectorAll('input[name="read"]');
+    let read;
+    for (const readButton of readButtons) {
+        if (readButton.checked) {
+            read = readButton.value;
+            break;
+        }
+    }
+
+    const book = new Book(title,author,pages,read);
+    myLibrary.push(book);
+}
+
 const openForm = document.querySelector('[data-open-modal]');
 const closeForm = document.querySelector('[data-close-modal]');
 const modal = document.querySelector("[data-modal]");
@@ -79,6 +99,9 @@ openForm.addEventListener('click', () => {
 closeForm.addEventListener('click', () => {
     modal.close();
 })
+
+const bookForm = document.querySelector('form');
+bookForm.addEventListener('submit', addBook);
 
 // const book1 = new Book('Sapiens','Yuval Noah Harari',380,'finished reading');
 // const book2 = new Book('Why We Sleep','Matt Walker',260,'finished reading');
