@@ -68,6 +68,12 @@ function viewLibrary() {
     }
 }
 
+function exitLibrary() {
+    const body = document.body;
+    const table = document.querySelector('table');
+    body.removeChild(table);
+}
+
 function addBook(event) {
     event.preventDefault();
 
@@ -103,7 +109,17 @@ closeForm.addEventListener('click', () => {
 const bookForm = document.querySelector('form');
 bookForm.addEventListener('submit', addBook);
 
-// const book1 = new Book('Sapiens','Yuval Noah Harari',380,'finished reading');
-// const book2 = new Book('Why We Sleep','Matt Walker',260,'finished reading');
-// const book3 = new Book('Astrophysics for People in a Hurry','Neil Tyson',120,'still reading');
-// const book4 = new Book('Rationality','Steven Pinker',330,'not yet read');
+const book1 = new Book('Sapiens','Yuval Noah Harari',380,'finished reading');
+const book2 = new Book('Why We Sleep','Matt Walker',260,'finished reading');
+const book3 = new Book('Astrophysics for People in a Hurry','Neil Tyson',120,'still reading');
+const book4 = new Book('Rationality','Steven Pinker',330,'not yet read');
+myLibrary.push(book1);
+myLibrary.push(book2);
+myLibrary.push(book3);
+myLibrary.push(book4);
+
+const openLibrary = document.querySelector('.open-library');
+openLibrary.addEventListener('click', viewLibrary());
+
+const closeLibrary = document.querySelector('.close-library');
+closeLibrary.addEventListener('click', exitLibrary());

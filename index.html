@@ -8,6 +8,8 @@
     <script defer src="./index.js"></script>
 </head>
 <body>
+    <button class="open-library">VIEW LIBRARY</button>
+    <button class="close-library">CLOSE LIBRARY</button>
     <button data-open-modal>NEW BOOK</button>
 
     <dialog data-modal>
@@ -27,15 +29,15 @@
             <fieldset>
                 <legend>Read Status</legend>
                 <div>
-                    <input type="radio" name="read" id="notRead" value="Not read yet">
+                    <input type="radio" name="read" id="notRead" value="not read yet">
                     <label for="notRead">Not read yet</label>
                 </div>
                 <div>
-                    <input type="radio" name="read" id="stillReading" value="Still reading">
+                    <input type="radio" name="read" id="stillReading" value="still reading">
                     <label for="stillReading">Still reading</label>
                 </div>
                 <div>
-                    <input type="radio" name="read" id="finReading" value="Finished reading">
+                    <input type="radio" name="read" id="finReading" value="finished reading">
                     <label for="finReading">Finished reading</label>
                 </div>
             </fieldset>
