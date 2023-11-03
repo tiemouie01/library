@@ -119,7 +119,11 @@ myLibrary.push(book3);
 myLibrary.push(book4);
 
 const openLibrary = document.querySelector('.open-library');
-openLibrary.addEventListener('click', viewLibrary());
+openLibrary.addEventListener('click',() => {
+    viewLibrary();
+});
 
 const closeLibrary = document.querySelector('.close-library');
-closeLibrary.addEventListener('click', exitLibrary());
+closeLibrary.addEventListener('click', () => {
+    exitLibrary();
+});
