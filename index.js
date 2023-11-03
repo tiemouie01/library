@@ -120,7 +120,10 @@ myLibrary.push(book4);
 
 const openLibrary = document.querySelector('.open-library');
 openLibrary.addEventListener('click',() => {
+    const table = document.querySelector('table');
+    if (!table) {
     viewLibrary();
+    }
 });
 
 const closeLibrary = document.querySelector('.close-library');
