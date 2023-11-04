@@ -35,6 +35,10 @@ function addBookToLibrary() {
     myLibrary.push(book);
 }
 
+function addRemoveButton() {
+    
+}
+
 function createRows(table,title,author,pages,read) {
     const row = document.createElement('tr');
     table.appendChild(row);
@@ -54,6 +58,15 @@ function createRows(table,title,author,pages,read) {
     cells[1].textContent = author;
     cells[2].textContent = pages;
     cells[3].textContent = read;
+
+    if (title !== 'Title'){
+        const cell = document.createElement('td');
+        row.appendChild(cell);
+        const removeButton = document.createElement('button');
+        removeButton.classList.add('remove-button');
+        removeButton.textContent = 'Remove from Library';
+        cell.appendChild(removeButton);
+    }
 }
 
 function viewLibrary() {
