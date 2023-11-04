@@ -35,8 +35,18 @@ function addBookToLibrary() {
     myLibrary.push(book);
 }
 
-function addRemoveButton() {
-    
+function addRemoveButton(row, title) {
+    const cell = document.createElement('td');
+    row.appendChild(cell);
+    const removeButton = document.createElement('button');
+    removeButton.classList.add('remove-button');
+    removeButton.textContent = 'Remove from Library';
+    cell.appendChild(removeButton);
+
+    removeButton.addEventListener('click', () => {
+        const index = myLibrary.findIndex(book => book.title === title);
+        myLibrary.splice(index, 1);
+    })
 }
 
 function createRows(table,title,author,pages,read) {
@@ -60,12 +70,7 @@ function createRows(table,title,author,pages,read) {
     cells[3].textContent = read;
 
     if (title !== 'Title'){
-        const cell = document.createElement('td');
-        row.appendChild(cell);
-        const removeButton = document.createElement('button');
-        removeButton.classList.add('remove-button');
-        removeButton.textContent = 'Remove from Library';
-        cell.appendChild(removeButton);
+        addRemoveButton(row,title);
     }
 }
 
