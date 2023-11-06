@@ -129,7 +129,7 @@ bookForm.addEventListener('submit', addBook);
 
 const book1 = new Book('Sapiens','Yuval Noah Harari',380,'finished reading');
 const book2 = new Book('Why We Sleep','Matt Walker',260,'finished reading');
-const book3 = new Book('Astrophysics for People in a Hurry','Neil Tyson',120,'still reading');
+const book3 = new Book('Astrophysics for People in a Hurry','Neil Tyson',120,'not read yet');
 const book4 = new Book('Rationality','Steven Pinker',330,'not yet read');
 myLibrary.push(book1);
 myLibrary.push(book2);
