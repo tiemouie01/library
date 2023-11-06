@@ -10,6 +10,14 @@ function Book(title, author, pages, read) {
     }
 }
 
+Book.prototype.toggleReadStatus = function() {
+    if (this.read === 'not read yet') {
+        this.read = 'finished reading';
+    } else {
+        this.read = 'not read yet';
+    }
+};
+
 function addBookToLibrary() {
     const title = prompt('Enter the title of the book:');
     const author = prompt('Enter the fullname of the author:');
@@ -33,6 +41,20 @@ function addBookToLibrary() {
     }
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
+}
+
+function addStatusChangeButton(row,title) {
+    const cell = document.createElement('td');
+    row.appendChild(cell);
+    const statusButton = document.createElement('button');
+    statusButton.classList.add('status-button');
+    statusButton.textContent = 'Change Read Status';
+    cell.appendChild(statusButton);
+
+    statusButton.addEventListener('click', () => {
+        const book = myLibrary.find(book => book.title === title);
+        book.toggleReadStatus();
+    })
 }
 
 function addRemoveButton(row, title) {
@@ -71,6 +93,7 @@ function createRows(table,title,author,pages,read) {
 
     if (title !== 'Title'){
         addRemoveButton(row,title);
+        addStatusChangeButton(row,title);
     }
 }
 
